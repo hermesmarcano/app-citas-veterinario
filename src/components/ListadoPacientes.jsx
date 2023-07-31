@@ -1,7 +1,10 @@
 
 import Paciente from "./Paciente"
 
-function ListadoPacientes() {
+function ListadoPacientes({pacientes}) {
+ 
+
+
   return (
     <div className="md:w-1/2 lg:3/5 md:h-screen overflow-y-scroll">
 <h2 className="font-black text-3xl text-center">Listado Pacientes</h2>
@@ -9,11 +12,18 @@ function ListadoPacientes() {
 Administra tus {''}
   <span className="text-indigo-600 font-bold  ">Pacientes y Citas</span>
 </p>
-<Paciente /> 
-<Paciente /> 
-<Paciente /> 
-<Paciente /> 
-<Paciente /> 
+
+{pacientes.map( (paciente, index) => (
+  <Paciente
+    key={index}
+    paciente={paciente}
+  /> 
+)
+  )}
+
+
+
+
     </div>
       
     

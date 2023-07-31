@@ -1,7 +1,8 @@
 import {useState, useEffect} from "react"
+import Error from "./Error"
 
 
-function Formulario() {
+function Formulario({setPacientes, pacientes}) {
  const [nombre, setNombre] = useState('')
  const [propietario, setPropietario] = useState('')
  const [email, setEmail] = useState('')
@@ -23,7 +24,29 @@ if ([nombre, propietario, email, alta, sintomas].includes('')) {
 setError(false)
 
   console.log('Enviando formulario');
+  // Objeto de paciente
+const objetoPaciente = {
+  nombre,
+   propietario,
+    email,
+     alta,
+      sintomas
+
 }
+
+    setPacientes([...pacientes, objetoPaciente])
+
+  //Reiniciar form
+  setNombre('')
+  setPropietario('')
+  setEmail('')
+  setAlta('')
+  setSintomas('')
+}
+
+
+
+
   
 
   return (
@@ -38,9 +61,7 @@ setError(false)
       onSubmit={handleSubmit}
        className="bg-white shadow-md rounded-lg py-10 px-5 mb-5 mx-5">
 
-{error &&
- <h1 className='bg-red-600 p-1 text-white text-center rounded-md uppercase font-bold'>Todos los campos son obligatorios</h1> 
- }
+{error && <Error>Todos los componentes son obligatorios</Error> }
 
         <div className="mb-5">
           <label htmlFor="mascota" className="block text-gray-700 uppercase font-bold">
