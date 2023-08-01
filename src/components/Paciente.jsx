@@ -2,7 +2,7 @@
 
 function Paciente({paciente}) {
   
-  const {nombre, propietario, email, alta, sintomas} = paciente
+  const {nombre, propietario, email, alta, sintomas, id} = paciente
   
   
   
@@ -27,6 +27,10 @@ function Paciente({paciente}) {
 
   <p className="font-bold mb-3 text-gray-700 uppercase">Sintomas: {''}
   <span className=" font-normal normal-case">{sintomas}</span>
+  </p>
+
+  <p className="font-bold mb-3 text-gray-700 uppercase">ID: {''}
+  <span className=" font-normal normal-case">{id}</span>
   </p>
 </div>
   )
